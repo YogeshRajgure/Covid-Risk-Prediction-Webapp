@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <div class="animated animatedFadeInUp fadeInUp" style="color: #370B1E;">
+        <div class="container fw-bold" style="font-size:40pt; text-align:center; margin-top:100px; color: #370B1E;">
+            Find out COVID-19 risk prediction for patients.<br><br>       
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-5 me-3">
+                    <div class="card border-0 mx-auto" style="background-color: #F7F2FA;">
+                        <div class="card-body mx-3 my-3">
+                            <h3 class="card-title">ML Model results</h3><br>
+                            <p class="card-text fw-bold">Accuracy = {{ accuracy }}.<br>
+                                <br>ROC AUC Score = {{ ROCAUC }}.<br>
+                                <br><img class="img-fluid" src="{{ url_for('static', filename='images/roc_curve.png') }}" class="rounded img-fluid" alt="ROC Curve"><br>
+                                <br>Confusion Matrix = <br>
+                                [{{ confusionMatrix[0][0] }}, {{ confusionMatrix[0][1] }}]<br>
+                                [{{ confusionMatrix[1][0] }}, {{ confusionMatrix[1][1] }}]<br>
+                                <br><img class="img-fluid" src="{{ url_for('static', filename='images/confusionmatrix.png') }}" class="rounded img-fluid" alt="ROC Curve">
+                            </p><br>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-5 ms-3">
+                    <div class="row">
+                        <div class="card border-0 mx-auto" style="background-color: #F7F2FA;">
+                            <div class="card-body mx-3 my-3 text-center">
+                                <h3 class="card-title">Download</h3><br>
+                                <p class="card-text">Result is ready. Click download button below.</p><br>
+                                <a href="/return-file">
+                                    <button class='btn btn-lg shadow-sm rounded-pill border-0 fw-bold' style="color: #370B1E; background-color: #FFD8E4; width: 12rem;">
+                                        <p class="small m-2"><span class="inline-icon2 material-icons-outlined mx-2">file_download</span>Download</p>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card border-0 mx-auto mt-5" style="background-color: #F7F2FA;">
+                            <div class="card-body mx-3 my-3 text-center">
+                                <h3 class="card-title">Send Email</h3><br>
+                                <p class="card-text">Send emails to the patients having, High Risk = YES.</p><br>
+                                <a href="/sendemail">
+                                    <button class="btn btn-lg shadow-sm rounded-pill border-0 fw-bold" style="background-color: #D5E7F5;" type="button">
+                                        <p class="small m-2"><span class="inline-icon2 material-icons-outlined mx-2">email</span>Send email</p>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>    
+    
+{% endblock body %}
