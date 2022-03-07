@@ -1,4 +1,4 @@
-# Final Year Project ![GitHub language count](https://img.shields.io/github/languages/count/YogeshRajgure/Covid-Risk-Prediction-Webapp?color=green)
+# Covid Risk Prediction WebApp ![GitHub language count](https://img.shields.io/github/languages/count/YogeshRajgure/Covid-Risk-Prediction-Webapp?color=green)
 
 ## Title: Predicting high risk COVID-19 patients.
 
